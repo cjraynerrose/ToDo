@@ -1,7 +1,6 @@
-﻿namespace Interfaces
+﻿namespace CJRaynerRose.ToDo.Server.Interaction.Interfaces
 {
     public interface ICommand
     {
-        public void Execute();
     }
 }

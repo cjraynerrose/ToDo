@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>CJRaynerRose.ToDo.Server.Interaction.Interfaces</RootNamespace>
+    <AssemblyName>CJRaynerRose.ToDo.Server.Interaction.Interfaces</AssemblyName>
   </PropertyGroup>
 
 </Project>

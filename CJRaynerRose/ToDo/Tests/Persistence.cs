@@ -8,7 +8,7 @@ using NUnit.Framework.Constraints;
 
 namespace CJRaynerRose.ToDo.Tests
 {
-    public class Tests
+    public class Persistence
     {
         [SetUp]
         public void Setup()

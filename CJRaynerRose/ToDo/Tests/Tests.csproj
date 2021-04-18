@@ -14,7 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Common\Events\Events.csproj" />
     <ProjectReference Include="..\Common\Master\Master.csproj" />
+    <ProjectReference Include="..\Server\Interaction\Master\Master.csproj" />
     <ProjectReference Include="..\Server\Persistence\Interfaces\Interfaces.csproj" />
     <ProjectReference Include="..\Server\Persistence\Master\Master.csproj" />
   </ItemGroup>

@@ -16,6 +16,10 @@ namespace CJRaynerRose.ToDo.Server.Persistence.Master
 
         public void Add(Item item)
         {
+            if (_items.ContainsKey(item.GetId()))
+            {
+                return;
+            }
             AddOrUpdate(item);
         }
 
@@ -31,7 +35,7 @@ namespace CJRaynerRose.ToDo.Server.Persistence.Master
 
         private void AddOrUpdate(Item item)
         {
-            _items[item.Id] = item;
+            _items[item.GetId()] = item;
         }
     }
 }

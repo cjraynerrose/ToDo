@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using CJRaynerRose.ToDo.Common.Master;
 
 namespace CJRaynerRose.ToDo.Server.Persistence.Interfaces
 {
