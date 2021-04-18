@@ -1,8 +1,8 @@
 using System;
 using System.Linq;
 using CJRaynerRose.ToDo.Common.Master;
-using CJRaynerRose.ToDo.Server.Persistence.Interfaces;
 using CJRaynerRose.ToDo.Server.Persistence.Master;
+using CJRaynerRose.ToDo.Server.UseCases.Store;
 using NUnit.Framework;
 using NUnit.Framework.Constraints;
 
@@ -32,7 +32,7 @@ namespace CJRaynerRose.ToDo.Tests
             store.Add(item);
 
             //Assert
-            var storeItems = store.GetAll();
+            System.Collections.Generic.ICollection<Item> storeItems = store.GetAll();
             Assert.That(storeItems, Has.Count.EqualTo(1));
         }
 
@@ -61,7 +61,7 @@ namespace CJRaynerRose.ToDo.Tests
             });
 
             //Assert
-            var storeItems = store.GetAll();
+            System.Collections.Generic.ICollection<Item> storeItems = store.GetAll();
             Assert.That(storeItems.First().Complete, Is.EqualTo(true));
         }
     }

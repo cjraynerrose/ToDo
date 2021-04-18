@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CJRaynerRose.ToDo.Common.Master;
-using CJRaynerRose.ToDo.Server.Persistence.Interfaces;
+using CJRaynerRose.ToDo.Server.UseCases.Store;
 
 namespace CJRaynerRose.ToDo.Server.Persistence.Master
 {

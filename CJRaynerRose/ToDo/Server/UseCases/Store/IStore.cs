@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CJRaynerRose.ToDo.Server.Persistence.Interfaces
+namespace CJRaynerRose.ToDo.Server.UseCases.Store
 {
     public interface IStore<T>
     {

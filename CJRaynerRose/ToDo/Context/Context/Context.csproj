@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>CJRaynerRose.ToDo.Server.Context</RootNamespace>
+    <AssemblyName>CJRaynerRose.ToDo.Server.Context</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Context\Context.csproj" />
+  </ItemGroup>
+
+</Project>

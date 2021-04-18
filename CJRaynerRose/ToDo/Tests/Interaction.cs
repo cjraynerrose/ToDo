@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using CJRaynerRose.ToDo.Common.Master;
-using CJRaynerRose.ToDo.Server.Interaction.Interfaces;
-using CJRaynerRose.ToDo.Server.Interaction.Master;
-using CJRaynerRose.ToDo.Server.Persistence.Interfaces;
 using CJRaynerRose.ToDo.Server.Persistence.Master;
+using CJRaynerRose.ToDo.Server.UseCases.Master;
+using CJRaynerRose.ToDo.Server.UseCases.Store;
 using NUnit.Framework;
 
 namespace CJRaynerRose.ToDo.Tests

@@ -1,7 +1,7 @@
 ﻿using System;
-using CJRaynerRose.ToDo.Server.Interaction.Interfaces;
+using CJRaynerRose.ToDo.Server.UseCases.Interfaces;
 
-namespace CJRaynerRose.ToDo.Server.Interaction.Master
+namespace CJRaynerRose.ToDo.Server.UseCases.Master
 {
     public class CreateItemCommand : ICommand
     {

@@ -1,8 +1,8 @@
 ﻿using CJRaynerRose.ToDo.Common.Master;
-using CJRaynerRose.ToDo.Server.Interaction.Interfaces;
-using CJRaynerRose.ToDo.Server.Persistence.Interfaces;
+using CJRaynerRose.ToDo.Server.UseCases.Interfaces;
+using CJRaynerRose.ToDo.Server.UseCases.Store;
 
-namespace CJRaynerRose.ToDo.Server.Interaction.Master
+namespace CJRaynerRose.ToDo.Server.UseCases.Master
 {
     public class CreateItemCommandHandler : ICommandHandler<CreateItemCommand>
     {
