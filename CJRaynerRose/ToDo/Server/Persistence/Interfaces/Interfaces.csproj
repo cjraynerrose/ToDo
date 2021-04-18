@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>CJRaynerRose.ToDo.Server.Persistence.Interfaces</RootNamespace>
+    <AssemblyName>CJRaynerRose.ToDo.Server.Persistence.Interfaces</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Master\Master.csproj" />
+  </ItemGroup>
+
+</Project>
