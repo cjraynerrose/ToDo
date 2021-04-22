@@ -20,6 +20,11 @@ namespace CJRaynerRose.ToDo.Tests.Events
             return _events.FirstOrDefault(e => e.GetId() == id);
         }
 
+        public EventChain GetEventsForContextOrderedByTime(Guid contextId)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Push(IEvent e)
         {
             _events.Add(e);

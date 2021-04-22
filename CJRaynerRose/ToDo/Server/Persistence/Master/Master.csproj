@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Common\Master\Master.csproj" />
+    <ProjectReference Include="..\..\..\Context\Context\Context.csproj" />
+    <ProjectReference Include="..\..\Events\Events.csproj" />
     <ProjectReference Include="..\..\UseCases\Store\Store.csproj" />
   </ItemGroup>
 

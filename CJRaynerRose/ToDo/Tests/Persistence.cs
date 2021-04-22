@@ -26,7 +26,7 @@ namespace CJRaynerRose.ToDo.Tests
                 Complete = false
             };
 
-            IStore<Item> store = new ItemInMemStore();
+            IStore<Item> store = new ItemInMemStore(new TestInteractionContext());
 
             //Act
             store.Add(item);
@@ -49,7 +49,7 @@ namespace CJRaynerRose.ToDo.Tests
                 Complete = false
             };
 
-            IStore<Item> store = new ItemInMemStore();
+            IStore<Item> store = new ItemInMemStore(new TestInteractionContext());
             store.Add(item);
 
             //Act

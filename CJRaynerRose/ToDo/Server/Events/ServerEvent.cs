@@ -7,15 +7,17 @@ namespace CJRaynerRose.ToDo.Server.Events
 {
     public class ServerEvent : IEvent
     {
-        public ServerEvent(string description, string state)
+        public ServerEvent(Guid contextId, string description, string state)
         {
             Id = Guid.NewGuid();
+            ContextId = contextId;
             Timestamp = SystemTime.Now;
             Description = description;
             State = state;
         }
 
         private Guid Id { get; }
+        private Guid ContextId { get; }
         private DateTime Timestamp { get; }
         private string Description { get; }
         private string State { get; }
@@ -38,6 +40,11 @@ namespace CJRaynerRose.ToDo.Server.Events
         public string GetState()
         {
             return State;
+        }
+
+        public Guid GetEventContext()
+        {
+            return ContextId;
         }
     }
 }

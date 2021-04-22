@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Context\Context.csproj" />
     <ProjectReference Include="..\..\..\Common\Master\Master.csproj" />
+    <ProjectReference Include="..\..\Events\Events.csproj" />
     <ProjectReference Include="..\CQRS\CQRS.csproj" />
     <ProjectReference Include="..\Store\Store.csproj" />
   </ItemGroup>

@@ -15,7 +15,7 @@ namespace CJRaynerRose.ToDo.Tests
         [SetUp]
         public void SetUp()
         {
-            _store = new ItemInMemStore();
+            _store = new ItemInMemStore(new TestInteractionContext());
         }
 
         [Test]
@@ -28,7 +28,7 @@ namespace CJRaynerRose.ToDo.Tests
                 Name = "New Item"
             };
 
-            CreateItemCommandHandler commandHandler = new (_store);
+            CreateItemCommandHandler commandHandler = new (new TestInteractionContext(), _store);
 
             //Act
             commandHandler.Execute(createItemCommand);
@@ -56,7 +56,7 @@ namespace CJRaynerRose.ToDo.Tests
                 Name = "New Item"
             };
 
-            CreateItemCommandHandler commandHandler = new(_store);
+            CreateItemCommandHandler commandHandler = new(new TestInteractionContext(), _store);
 
             //Act
             commandHandler.Execute(createItemCommand);

@@ -28,5 +28,10 @@ namespace CJRaynerRose.ToDo.Tests.Events
         {
             return State;
         }
+
+        public Guid GetEventContext()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
