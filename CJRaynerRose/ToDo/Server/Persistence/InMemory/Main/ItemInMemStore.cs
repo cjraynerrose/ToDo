@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using CJRaynerRose.ToDo.Common.Context;
-using CJRaynerRose.ToDo.Common.Events;
 using CJRaynerRose.ToDo.Common.Main;
 using CJRaynerRose.ToDo.Server.UseCases.Store;
 
@@ -23,12 +22,10 @@ namespace CJRaynerRose.ToDo.Server.Persistence.InMemory.Main
         {
             if (_items.ContainsKey(item.GetId()))
             {
-                _context.RaiseEvent($"Cannot add item to store, key already exists: {item.GetId()}", State.Failure);
                 return;
             }
 
             AddOrUpdate(item);
-            _context.RaiseEvent($"Item added: {item.GetId()}", State.Complete);
         }
 
         public ICollection<Item> GetAll()
@@ -40,12 +37,10 @@ namespace CJRaynerRose.ToDo.Server.Persistence.InMemory.Main
         {
             if (!_items.ContainsKey(item.GetId()))
             {
-                _context.RaiseEvent($"Cannot update item in store, key does not exist: {item.GetId()}", State.Failure);
                 return;
             }
 
             AddOrUpdate(item);
-            _context.RaiseEvent($"Item updated: {item.GetId()}", State.Complete);
         }
 
         private void AddOrUpdate(Item item)

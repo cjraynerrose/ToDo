@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Context\Context.csproj" />
-    <ProjectReference Include="..\..\Server\Events\Events.csproj" />
   </ItemGroup>
 
 </Project>

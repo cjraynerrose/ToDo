@@ -10,8 +10,4 @@
     <OutputPath>..\bin\Debug\</OutputPath>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Events\Events.csproj" />
-  </ItemGroup>
-
 </Project>

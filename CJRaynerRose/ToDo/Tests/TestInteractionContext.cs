@@ -1,6 +1,5 @@
 ﻿using System;
 using CJRaynerRose.ToDo.Common.Context;
-using CJRaynerRose.ToDo.Common.Events;
 
 namespace CJRaynerRose.ToDo.Tests
 {
@@ -11,12 +10,5 @@ namespace CJRaynerRose.ToDo.Tests
             return Guid.Empty;
         }
 
-        public void RaiseEvent(IEvent e)
-        {
-        }
-
-        public void RaiseEvent(string description, State state)
-        {
-        }
     }
 }
