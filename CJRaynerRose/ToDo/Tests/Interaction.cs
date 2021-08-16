@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CJRaynerRose.ToDo.Common.Master;
-using CJRaynerRose.ToDo.Server.Persistence.Master;
-using CJRaynerRose.ToDo.Server.UseCases.Master;
+using CJRaynerRose.ToDo.Common.Main;
+using CJRaynerRose.ToDo.Server.Persistence.InMemory.Main;
+using CJRaynerRose.ToDo.Server.UseCases.Main;
 using CJRaynerRose.ToDo.Server.UseCases.Store;
 using NUnit.Framework;
 
@@ -12,6 +12,7 @@ namespace CJRaynerRose.ToDo.Tests
     public class Interaction
     {
         private IStore<Item> _store;
+
         [SetUp]
         public void SetUp()
         {
@@ -22,16 +23,16 @@ namespace CJRaynerRose.ToDo.Tests
         public void CreateNewItem_WhenIdNotExist()
         {
             //Arrange
-            CreateItemCommand createItemCommand = new ()
+            CreateItemCommand createItemCommand = new()
             {
                 Id = Guid.NewGuid(),
                 Name = "New Item"
             };
 
-            CreateItemCommandHandler commandHandler = new (new TestInteractionContext(), _store);
+            CreateItemCommandHandler commandHandler = new(_store);
 
             //Act
-            commandHandler.Execute(createItemCommand);
+            commandHandler.Execute(createItemCommand, new TestInteractionContext());
 
             //Assert
             Assert.That(_store.GetAll().Count, Is.EqualTo(1));
@@ -41,9 +42,9 @@ namespace CJRaynerRose.ToDo.Tests
         public void FailCreateItem_WhenIdExists()
         {
             //Arrange
-            Guid id = Guid.NewGuid();
+            var id = Guid.NewGuid();
 
-            _store.Add(new Item()
+            _store.Add(new Item
             {
                 Id = id,
                 Name = "Existing Item",
@@ -56,10 +57,10 @@ namespace CJRaynerRose.ToDo.Tests
                 Name = "New Item"
             };
 
-            CreateItemCommandHandler commandHandler = new(new TestInteractionContext(), _store);
+            CreateItemCommandHandler commandHandler = new(_store);
 
             //Act
-            commandHandler.Execute(createItemCommand);
+            commandHandler.Execute(createItemCommand, new TestInteractionContext());
 
             //Assert
             ICollection<Item> items = _store.GetAll();

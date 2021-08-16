@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using CJRaynerRose.ToDo.Common.Events;
 using CJRaynerRose.ToDo.Common.Util.Time;
 
@@ -7,20 +6,20 @@ namespace CJRaynerRose.ToDo.Server.Events
 {
     public class ServerEvent : IEvent
     {
-        public ServerEvent(Guid contextId, string description, string state)
+        public ServerEvent(Guid concurrencyId, string description, State state)
         {
             Id = Guid.NewGuid();
-            ContextId = contextId;
+            ConcurrencyId = concurrencyId;
             Timestamp = SystemTime.Now;
             Description = description;
             State = state;
         }
 
         private Guid Id { get; }
-        private Guid ContextId { get; }
+        private Guid ConcurrencyId { get; }
         private DateTime Timestamp { get; }
         private string Description { get; }
-        private string State { get; }
+        private State State { get; }
 
         public Guid GetId()
         {
@@ -37,14 +36,14 @@ namespace CJRaynerRose.ToDo.Server.Events
             return Description;
         }
 
-        public string GetState()
+        public State GetState()
         {
             return State;
         }
 
-        public Guid GetEventContext()
+        public Guid GetEventConcurrencyId()
         {
-            return ContextId;
+            return ConcurrencyId;
         }
     }
 }

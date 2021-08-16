@@ -5,9 +5,9 @@ namespace CJRaynerRose.ToDo.Common.Events
 {
     public interface IEvent : IIdentifiable<Guid>
     {
-        Guid GetEventContext();
+        Guid GetEventConcurrencyId();
         DateTime GetWhenEmitted();
         string GetDescription();
-        string GetState();
+        State GetState();
     }
 }

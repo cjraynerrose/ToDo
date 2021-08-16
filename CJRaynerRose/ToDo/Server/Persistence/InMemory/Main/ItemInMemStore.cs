@@ -1,17 +1,16 @@
-﻿using CJRaynerRose.ToDo.Common.Master;
-using CJRaynerRose.ToDo.Server.Context;
-using CJRaynerRose.ToDo.Server.UseCases.Store;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using CJRaynerRose.ToDo.Common.Context;
-using CJRaynerRose.ToDo.Server.Events;
+using CJRaynerRose.ToDo.Common.Events;
+using CJRaynerRose.ToDo.Common.Main;
+using CJRaynerRose.ToDo.Server.UseCases.Store;
 
-namespace CJRaynerRose.ToDo.Server.Persistence.Master
+namespace CJRaynerRose.ToDo.Server.Persistence.InMemory.Main
 {
     public class ItemInMemStore : IStore<Item>
     {
-        private IDictionary<Guid, Item> _items;
         readonly private IInteractionContext _context;
+        readonly private IDictionary<Guid, Item> _items;
 
 
         public ItemInMemStore(IInteractionContext context)
@@ -24,11 +23,12 @@ namespace CJRaynerRose.ToDo.Server.Persistence.Master
         {
             if (_items.ContainsKey(item.GetId()))
             {
-                _context.RaiseEvent($"Cannot add item to store, key already exists: {item.GetId()}", State.FAILURE);
+                _context.RaiseEvent($"Cannot add item to store, key already exists: {item.GetId()}", State.Failure);
                 return;
             }
+
             AddOrUpdate(item);
-            _context.RaiseEvent($"Item added: {item.GetId()}", State.COMPLETE);
+            _context.RaiseEvent($"Item added: {item.GetId()}", State.Complete);
         }
 
         public ICollection<Item> GetAll()
@@ -40,11 +40,12 @@ namespace CJRaynerRose.ToDo.Server.Persistence.Master
         {
             if (!_items.ContainsKey(item.GetId()))
             {
-                _context.RaiseEvent($"Cannot update item in store, key does not exist: {item.GetId()}", State.FAILURE);
+                _context.RaiseEvent($"Cannot update item in store, key does not exist: {item.GetId()}", State.Failure);
                 return;
             }
+
             AddOrUpdate(item);
-            _context.RaiseEvent($"Item updated: {item.GetId()}", State.COMPLETE);
+            _context.RaiseEvent($"Item updated: {item.GetId()}", State.Complete);
         }
 
         private void AddOrUpdate(Item item)

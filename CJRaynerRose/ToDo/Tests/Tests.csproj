@@ -15,9 +15,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Common\Events\Events.csproj" />
-    <ProjectReference Include="..\Common\Master\Master.csproj" />
-    <ProjectReference Include="..\Server\Persistence\Master\Master.csproj" />
-    <ProjectReference Include="..\Server\UseCases\Master\Master.csproj" />
+    <ProjectReference Include="..\Common\Main\Main.csproj" />
+    <ProjectReference Include="..\Server\Context\Context.csproj" />
+    <ProjectReference Include="..\Server\Persistence\InMemory\Main\Main.csproj" />
+    <ProjectReference Include="..\Server\UseCases\Main\Main.csproj" />
   </ItemGroup>
 
 </Project>

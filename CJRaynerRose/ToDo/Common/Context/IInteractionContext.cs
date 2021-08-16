@@ -7,6 +7,6 @@ namespace CJRaynerRose.ToDo.Common.Context
     {
         Guid GetContextId();
         void RaiseEvent(IEvent e);
-        void RaiseEvent(string description, string state);
+        void RaiseEvent(string description, State state);
     }
 }

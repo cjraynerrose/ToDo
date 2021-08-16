@@ -13,12 +13,10 @@ namespace CJRaynerRose.ToDo.Tests
 
         public void RaiseEvent(IEvent e)
         {
-            return;
         }
 
-        public void RaiseEvent(string description, string state)
+        public void RaiseEvent(string description, State state)
         {
-            return;
         }
     }
 }

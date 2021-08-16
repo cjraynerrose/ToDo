@@ -1,10 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
-using CJRaynerRose.ToDo.Common.Master;
-using CJRaynerRose.ToDo.Server.Persistence.Master;
+using CJRaynerRose.ToDo.Common.Main;
+using CJRaynerRose.ToDo.Server.Persistence.InMemory.Main;
 using CJRaynerRose.ToDo.Server.UseCases.Store;
 using NUnit.Framework;
-using NUnit.Framework.Constraints;
 
 namespace CJRaynerRose.ToDo.Tests
 {
@@ -32,7 +32,7 @@ namespace CJRaynerRose.ToDo.Tests
             store.Add(item);
 
             //Assert
-            System.Collections.Generic.ICollection<Item> storeItems = store.GetAll();
+            ICollection<Item> storeItems = store.GetAll();
             Assert.That(storeItems, Has.Count.EqualTo(1));
         }
 
@@ -40,7 +40,7 @@ namespace CJRaynerRose.ToDo.Tests
         public void UpdateItem_WhenValid()
         {
             // Arrange
-            Guid id = Guid.NewGuid();
+            var id = Guid.NewGuid();
 
             Item item = new()
             {
@@ -53,7 +53,7 @@ namespace CJRaynerRose.ToDo.Tests
             store.Add(item);
 
             //Act
-            store.Update(new Item()
+            store.Update(new Item
             {
                 Id = id,
                 Name = "Test",
@@ -61,7 +61,7 @@ namespace CJRaynerRose.ToDo.Tests
             });
 
             //Assert
-            System.Collections.Generic.ICollection<Item> storeItems = store.GetAll();
+            ICollection<Item> storeItems = store.GetAll();
             Assert.That(storeItems.First().Complete, Is.EqualTo(true));
         }
     }

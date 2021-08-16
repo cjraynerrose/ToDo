@@ -7,18 +7,18 @@ namespace CJRaynerRose.ToDo.Server.Context
 {
     public class InteractionContext : IInteractionContext
     {
-        private readonly Guid _contextId;
+        readonly private Guid _concurrencyId;
         readonly private IEventStore _store;
 
-        public InteractionContext(IEventStore store, Guid? contextId)
+        public InteractionContext(IEventStore store, Guid? concurrencyId)
         {
-            _contextId = contextId ?? Guid.NewGuid();
+            _concurrencyId = concurrencyId ?? Guid.NewGuid();
             _store = store;
         }
 
         public Guid GetContextId()
         {
-            return _contextId;
+            return _concurrencyId;
         }
 
         public void RaiseEvent(IEvent e)
@@ -26,9 +26,9 @@ namespace CJRaynerRose.ToDo.Server.Context
             _store.Push(e);
         }
 
-        public void RaiseEvent(string description, string state)
+        public void RaiseEvent(string description, State state)
         {
-            IEvent e = new ServerEvent(_contextId, description, state);
+            IEvent e = new ServerEvent(_concurrencyId, description, state);
             RaiseEvent(e);
         }
     }

@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>CJRaynerRose.ToDo.Common.Master</RootNamespace>
-    <AssemblyName>CJRaynerRose.ToDo.Common.Master</AssemblyName>
+    <RootNamespace>CJRaynerRose.ToDo.Common.Main</RootNamespace>
+    <AssemblyName>CJRaynerRose.ToDo.Common.Main</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

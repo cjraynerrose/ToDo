@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>CJRaynerRose.ToDo.Server.Persistence.InMemory.Main</RootNamespace>
+    <AssemblyName>CJRaynerRose.ToDo.Server.Persistence.InMemory.Main</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Common\Context\Context.csproj" />
+    <ProjectReference Include="..\..\..\..\Common\Main\Main.csproj" />
+    <ProjectReference Include="..\..\..\UseCases\Store\Store.csproj" />
+  </ItemGroup>
+
+</Project>

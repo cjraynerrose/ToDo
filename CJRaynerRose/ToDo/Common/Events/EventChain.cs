@@ -6,7 +6,7 @@ namespace CJRaynerRose.ToDo.Common.Events
 {
     public class EventChain
     {
-        private readonly IEnumerable<IEvent> _events;
+        readonly private IEnumerable<IEvent> _events;
 
         public EventChain(IEnumerable<IEvent> events)
         {
@@ -18,14 +18,12 @@ namespace CJRaynerRose.ToDo.Common.Events
             return _events.ToList();
         }
 
-        public override string ToString()
+        override public string ToString()
         {
             StringBuilder sb = new();
 
             foreach (IEvent e in _events)
-            {
                 sb.AppendLine($"{e.GetWhenEmitted()} :: {e.GetState()} : {e.GetDescription()}");
-            }
 
             return sb.ToString();
         }

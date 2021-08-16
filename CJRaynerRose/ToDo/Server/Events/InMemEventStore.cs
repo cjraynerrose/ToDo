@@ -7,7 +7,7 @@ namespace CJRaynerRose.ToDo.Server.Events
 {
     public class InMemEventStore : IEventStore
     {
-        private HashSet<IEvent> _events;
+        readonly private HashSet<IEvent> _events;
 
         public InMemEventStore()
         {
@@ -19,11 +19,11 @@ namespace CJRaynerRose.ToDo.Server.Events
             return _events.FirstOrDefault(e => e.GetId() == id);
         }
 
-        public EventChain GetEventsForContextOrderedByTime(Guid contextId)
+        public EventChain GetEventsForContextOrderedByTime(Guid concurrencyId)
         {
             EventChain contextualEvents = new(
                 _events
-                    .Where(e => e.GetEventContext() == contextId)
+                    .Where(e => e.GetEventConcurrencyId() == concurrencyId)
                     .OrderBy(e => e.GetWhenEmitted()));
 
             return contextualEvents;

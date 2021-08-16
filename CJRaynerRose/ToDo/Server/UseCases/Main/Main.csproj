@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>CJRaynerRose.ToDo.Server.UseCases.Master</RootNamespace>
-    <AssemblyName>CJRaynerRose.ToDo.Server.UseCases.Master</AssemblyName>
+    <RootNamespace>CJRaynerRose.ToDo.Server.UseCases.Main</RootNamespace>
+    <AssemblyName>CJRaynerRose.ToDo.Server.UseCases.Main</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Common\Context\Context.csproj" />
-    <ProjectReference Include="..\..\..\Common\Master\Master.csproj" />
+    <ProjectReference Include="..\..\..\Common\Main\Main.csproj" />
     <ProjectReference Include="..\..\Events\Events.csproj" />
     <ProjectReference Include="..\CQRS\CQRS.csproj" />
     <ProjectReference Include="..\Store\Store.csproj" />

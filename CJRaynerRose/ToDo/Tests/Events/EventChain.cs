@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using CJRaynerRose.ToDo.Common.Context;
 using CJRaynerRose.ToDo.Common.Events;
-using CJRaynerRose.ToDo.Common.Master;
+using CJRaynerRose.ToDo.Common.Main;
 using CJRaynerRose.ToDo.Server.Context;
 using CJRaynerRose.ToDo.Server.Events;
-using CJRaynerRose.ToDo.Server.Persistence.Master;
-using CJRaynerRose.ToDo.Server.UseCases.Master;
+using CJRaynerRose.ToDo.Server.Persistence.InMemory.Main;
+using CJRaynerRose.ToDo.Server.UseCases.Main;
 using CJRaynerRose.ToDo.Server.UseCases.Store;
 using NUnit.Framework;
 
@@ -16,9 +13,9 @@ namespace CJRaynerRose.ToDo.Tests.Events
 {
     public class EventChainTests
     {
-        private IEventStore _eventStore;
-        private Guid _contextId;
         private IInteractionContext _context;
+        private Guid _contextId;
+        private IEventStore _eventStore;
         private IStore<Item> _store;
 
         [SetUp]
@@ -41,9 +38,9 @@ namespace CJRaynerRose.ToDo.Tests.Events
                 Complete = false
             };
 
-            CreateItemCommandHandler handler = new(_context, _store);
+            CreateItemCommandHandler handler = new(_store);
 
-            handler.Execute(command);
+            handler.Execute(command, _context);
 
             // Act
             EventChain eventChain = _eventStore.GetEventsForContextOrderedByTime(_contextId);
@@ -51,6 +48,5 @@ namespace CJRaynerRose.ToDo.Tests.Events
 
             Assert.That(eventChain.GetEvents(), Has.Count.EqualTo(2));
         }
-
     }
 }

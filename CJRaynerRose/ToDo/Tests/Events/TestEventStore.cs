@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using CJRaynerRose.ToDo.Common.Events;
-using NUnit.Framework;
 
 namespace CJRaynerRose.ToDo.Tests.Events
 {
     internal class TestEventStore : IEventStore
     {
-        private List<IEvent> _events;
+        readonly private List<IEvent> _events;
 
         public TestEventStore()
         {
@@ -20,7 +19,7 @@ namespace CJRaynerRose.ToDo.Tests.Events
             return _events.FirstOrDefault(e => e.GetId() == id);
         }
 
-        public EventChain GetEventsForContextOrderedByTime(Guid contextId)
+        public EventChain GetEventsForContextOrderedByTime(Guid concurrencyId)
         {
             throw new NotImplementedException();
         }

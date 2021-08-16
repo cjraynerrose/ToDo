@@ -6,4 +6,8 @@
     <AssemblyName>CJRaynerRose.ToDo.Server.UseCases.Interfaces</AssemblyName>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Context\Context.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -7,8 +7,9 @@ namespace CJRaynerRose.ToDo.Tests.Events
     {
         public Guid Id { get; init; }
         public string Description { get; init; }
-        public string State { get; init; }
+        public State State { get; init; }
         public DateTime Timestamp { get; init; }
+
         public Guid GetId()
         {
             return Id;
@@ -24,12 +25,12 @@ namespace CJRaynerRose.ToDo.Tests.Events
             return Description;
         }
 
-        public string GetState()
+        public State GetState()
         {
             return State;
         }
 
-        public Guid GetEventContext()
+        public Guid GetEventConcurrencyId()
         {
             throw new NotImplementedException();
         }
