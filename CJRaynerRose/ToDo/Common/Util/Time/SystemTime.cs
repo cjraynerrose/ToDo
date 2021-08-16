@@ -2,8 +2,8 @@
 
 namespace CJRaynerRose.ToDo.Common.Util.Time
 {
-    static public class SystemTime
+    public static class SystemTime
     {
-        static public DateTime Now => DateTime.Now;
+        public static DateTime Now => DateTime.Now;
     }
 }
