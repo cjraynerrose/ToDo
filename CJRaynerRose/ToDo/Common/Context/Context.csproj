@@ -10,4 +10,8 @@
     <OutputPath>..\bin\Debug\</OutputPath>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Base\Base.csproj" />
+  </ItemGroup>
+
 </Project>

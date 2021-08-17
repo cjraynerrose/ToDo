@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Server\Api\Main\Main.csproj" />
-    <ProjectReference Include="..\Server\Context\Context.csproj" />
     <ProjectReference Include="..\Server\Persistence\InMemory\Main\Main.csproj" />
   </ItemGroup>
 
