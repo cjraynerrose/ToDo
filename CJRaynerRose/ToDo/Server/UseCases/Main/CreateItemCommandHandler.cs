@@ -7,7 +7,7 @@ namespace CJRaynerRose.ToDo.Server.UseCases.Main
 {
     public class CreateItemCommandHandler : ICommandHandler<CreateItemCommand>
     {
-        readonly private IStore<Item> _store;
+        private readonly IStore<Item> _store;
 
         public CreateItemCommandHandler(IStore<Item> store)
         {

@@ -9,7 +9,7 @@ using NUnit.Framework;
 
 namespace CJRaynerRose.ToDo.Tests
 {
-    public class Interaction
+    public class InteractionTests
     {
         private IStore<Item> _store;
 

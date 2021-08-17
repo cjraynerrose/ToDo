@@ -8,7 +8,7 @@ using NUnit.Framework;
 
 namespace CJRaynerRose.ToDo.Tests
 {
-    public class Persistence
+    public class PersistenceTests
     {
         [SetUp]
         public void Setup()
@@ -63,6 +63,30 @@ namespace CJRaynerRose.ToDo.Tests
             //Assert
             ICollection<Item> storeItems = store.GetAll();
             Assert.That(storeItems.First().Complete, Is.EqualTo(true));
+        }
+
+        [Test]
+        public void DeleteItem_WithId()
+        {
+            // Arrange
+            var id = Guid.NewGuid();
+
+            Item item = new()
+            {
+                Id = id,
+                Name = "Test",
+                Complete = false
+            };
+
+            IStore<Item> store = new ItemInMemStore(new TestInteractionContext());
+            store.Add(item);
+
+            // Act
+            store.Remove(item);
+
+            // Assert
+            ICollection<Item> storeItems = store.GetAll();
+            Assert.That(storeItems.Count, Is.EqualTo(0));
         }
     }
 }

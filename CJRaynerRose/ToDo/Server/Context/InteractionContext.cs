@@ -5,11 +5,16 @@ namespace CJRaynerRose.ToDo.Server.Context
 {
     public class InteractionContext : IInteractionContext
     {
-        readonly private Guid _concurrencyId;
+        private readonly Guid _concurrencyId;
 
-        public InteractionContext(Guid? concurrencyId)
+        public InteractionContext(Guid concurrencyId)
         {
-            _concurrencyId = concurrencyId ?? Guid.NewGuid();
+            _concurrencyId = concurrencyId;
+        }
+
+        public InteractionContext()
+        {
+            _concurrencyId = Guid.NewGuid();
         }
 
         public Guid GetContextId()

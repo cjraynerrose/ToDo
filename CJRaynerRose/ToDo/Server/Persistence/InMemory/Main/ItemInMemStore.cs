@@ -33,6 +33,11 @@ namespace CJRaynerRose.ToDo.Server.Persistence.InMemory.Main
             return _items.Values;
         }
 
+        public void Remove(Item entity)
+        {
+            _items.Remove(entity.GetId());
+        }
+
         public void Update(Item item)
         {
             if (!_items.ContainsKey(item.GetId()))

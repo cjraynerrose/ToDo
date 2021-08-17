@@ -7,5 +7,6 @@ namespace CJRaynerRose.ToDo.Server.UseCases.Store
         public void Add(T entity);
         public ICollection<T> GetAll();
         public void Update(T entity);
+        public void Remove(T entity);
     }
 }
